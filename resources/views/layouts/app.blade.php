@@ -98,10 +98,17 @@
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">Menu </li>
-        <li class="active treeview">
+        <li class="treeview">
           <a href="#">
-            <i class="fa fa-dashboard"></i> <span>Notifications</span>
+            <i class="fa fa-edit"></i> <span>Notifications</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
           </a>
+          <ul class="treeview-menu">
+            <li><a href="{{route('notifications.create')}}"><i class="fa fa-circle-o"></i>Nouvelle notification</a></li>
+            <li><a href="pages/forms/advanced.html"><i class="fa fa-circle-o"></i>Historiques</a></li>
+          </ul>
         </li>
         <li class="treeview">
           <a href="#">

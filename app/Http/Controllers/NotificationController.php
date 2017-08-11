@@ -16,7 +16,9 @@ class NotificationController extends Controller
      */
     public function index()
     {
-        //
+        $notifications = Notification::all();
+
+        return view('notifications/all',['notifications' => $notifications]);
     }
 
     /**
@@ -48,6 +50,9 @@ class NotificationController extends Controller
                         "click_action"=>"FCM_PLUGIN_ACTIVITY",
                         "icon"=>"fcm_push_icon"
                     ],
+                "data" => [
+                    "paramBody" => $body,
+                ],
                 "to"=>"/topics/marketing",
                 "priority"=>"high",
         ));
@@ -66,7 +71,7 @@ class NotificationController extends Controller
         $notification->body = $body;
         $notification->save();
 
-        return redirect()->route('home');               
+        return redirect()->route('notifications.index');               
     }
 
     /**

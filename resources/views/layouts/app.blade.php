@@ -100,19 +100,32 @@
         <li class="header">Menu </li>
         <li class="treeview">
           <a href="#">
-            <i class="fa fa-edit"></i> <span>Notifications</span>
+            <i class="fa fa-bell"></i> <span>Notifications</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="{{route('notifications.create')}}"><i class="fa fa-circle-o"></i>Nouvelle notification</a></li>
-            <li><a href="pages/forms/advanced.html"><i class="fa fa-circle-o"></i>Historiques</a></li>
+            <li><a href="{{route('notifications.create')}}"><i class="fa fa-plus"></i>Nouvelle notification</a></li>
+            <li><a href="{{route('notifications.index')}}"><i class="fa fa-list"></i>Historiques</a></li>
           </ul>
         </li>
         <li class="treeview">
           <a href="#">
-            <i class="fa fa-edit"></i> <span>FAQ</span>
+            <i class="fa fa-camera"></i> <span>Vidéos</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="{{route('videos.create')}}"><i class="fa fa-plus"></i>Nouvelle Vidéo</a></li>
+            <li><a href="{{route('videos.index')}}"><i class="fa fa-list"></i>Toutes les vidéos</a></li>
+            <li><a href="{{route('rubriques.index')}}"><i class="fa fa-list"></i>Rubriques</a></li>
+          </ul>
+        </li>        
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-question"></i> <span>FAQ</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>

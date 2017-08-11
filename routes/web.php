@@ -13,6 +13,12 @@
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
+Route::get('/', 'HomeController@index')->name('home')->middleware('auth');
 
 Route::resource('notifications', 'NotificationController');
+
+Route::resource('videos', 'VideoController');
+Route::get('/videos/delete/{id}', 'VideoController@destroy')->name('videos.delete')->middleware('auth');
+
+Route::resource('rubriques', 'RubriqueController');
+Route::get('/rubriques/delete/{id}', 'RubriqueController@destroy')->name('rubriques.delete')->middleware('auth');

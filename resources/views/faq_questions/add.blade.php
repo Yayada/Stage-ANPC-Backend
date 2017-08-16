@@ -6,12 +6,12 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Rubriques
+        Questions
         <small>Nouvelle</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Acceuil</a></li>
-        <li class="active">Rubriques</li>
+        <li class="active">Questions</li>
       </ol>
     </section>
 
@@ -19,29 +19,23 @@
     <section class="content">
       <!-- Small boxes (Stat box) -->
       <div class="row">
-            <form role="form" method="post" action = {{route('videos.store')}}>
+            <form role="form" method="post" action = {{route('questions.store')}}>
                 {{ csrf_field() }}
               <div class="box-body">
                 <div class="form-group">
-                    <label for="title">Rubrique</label>
-                    <select  class="form-control" name="rubrique">
-                        @foreach($rubriques as $rubrique)
-                                <option value="{{$rubrique->id}}">{{$rubrique->name}}</option>
-                        @endforeach
-                    </select>
+                    <label for="title">Section</label>
+                    <input type="text" class="form-control" name="section" id="section" value="{{$section->title}}" placeholder="Titre" readonly>
                 </div>
                 <div class="form-group">
-                  <label for="title">Titre</label>
-                  <input type="text" class="form-control" name="title" id="title" placeholder="Titre">
+                  <label for="title">Question</label>
+                  <textarea type="text" class="form-control" name="question" id="question" placeholder="Contenu de la question "></textarea>
                 </div>                
                 <div class="form-group">
-                  <label for="description">Description</label>
-                  <input type="text" class="form-control" name="description" id="description" placeholder="Description">
-                </div>
-                <div class="form-group">
-                  <label for="title">URL</label>
-                  <input type="text" class="form-control" name="url" id="url" placeholder="URL de la vidèo">
-                </div>
+                    <label for="title">Réponse</label>
+                    <textarea class="textarea" name="response" id="response" placeholder="Réponse à la question"
+                          style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
+
+                </div>                
               <!-- /.box-body -->
               <div class="box-footer">
                 <button type="submit" class="btn btn-primary">Envoyer</button>
@@ -54,4 +48,10 @@
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
+  <script>
+  $(function () {
+    //bootstrap WYSIHTML5 - text editor
+    $('.textarea').wysihtml5()
+  })
+</script>
 @endsection

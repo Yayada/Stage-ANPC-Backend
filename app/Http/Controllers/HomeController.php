@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\FaqQuestion;
+use App\Notification;
 
 class HomeController extends Controller
 {
@@ -23,6 +25,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $questionsCount  =  FaqQuestion::all()->count();
+        $notificationsCount = Notification::all()->count();
+
+        return view('home',['questionsCount' => $questionsCount , 'notificationsCount' => $notificationsCount]);
     }
 }

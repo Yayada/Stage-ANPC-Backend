@@ -6,12 +6,12 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Vidèos
+        Faq
         <small>Toutes</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Acceuil</a></li>
-        <li class="active">Vidèos</li>
+        <li class="active">faq</li>
       </ol>
     </section>
     <!-- Main content -->
@@ -19,8 +19,8 @@
       <!-- Small boxes (Stat box) -->
       <div class ="row">
         <div class="col-md-6 col-xs-12">
-            <a href="{{route('videos.create')}}" class="btn btn-flat btn-primary">
-                Nouvelle vidèo  
+            <a href="{{route('faq.create')}}" class="btn btn-flat btn-primary">
+                Nouvelle Faq 
                 <i class="fa fa-plus"></i>
             </a>
         </div>
@@ -29,31 +29,34 @@
       <div class="row">
         <div class="box">
             <div class="box-header with-border">
-              <h3 class="box-title">Toutes les vidèos</h3>
+              <h3 class="box-title">Toutes les faq</h3>
             </div>
             <div class="box-body">
                 <table class="table table-bordered">
                 <tr>
-                    <th>Rubrique</th>
-                    <th>URl</th>
-                    <th>Description</th>
+                    <th>Nom</th>
+                    <th>Nombre de sections </th>
                     <th>Crée le</th>
-                    <th>Modifée le</th>
+                    <th>Modifiée le</th>
                     <th>Actions</th>
                 </tr>
-                @foreach($videos as $video)
+                @foreach($faqs as $faq)
+                
                 <tr>
-                    <td>{{$video->rubrique->name}}</td>
-                    <td>{{$video->url}}</td>
-                    <td>{{$video->description}}</td>
-                    <td>{{$video->created_at}}</td>
-                    <td>{{$video->updated_at}}</td>
+                    <td>{{$faq->title}}</td>
+                    <td>{{$faq->faqSections->count()}}</td>
+                    <td>{{$faq->created_at}}</td>
+                    <td>{{$faq->updated_at}}</td>
                     <td>    
-                        <a href="{{route('videos.edit',['id' => $video->id])}}" class="btn btn-xs btn-success">
+                        <a href="{{route('sections.byFaq',['id' => $faq->id])}}" class="btn btn-xs btn-primary">
+                            Voir sections 
+                            <i class="fa fa-list"></i>
+                        </a>
+                        <a href="{{route('faq.edit',['id' => $faq->id])}}" class="btn btn-xs btn-success">
                             Modifier 
                             <i class="fa fa-pencil"></i>
                         </a>
-                        <a href="{{route('videos.delete',['id' => $video->id])}}" class="btn btn-xs btn-danger">
+                        <a href="{{route('faq.delete',['id' => $faq->id])}}" class="btn btn-xs btn-danger">
                             Supprimer 
                             <i class="fa fa-trash"></i>
                         </a>

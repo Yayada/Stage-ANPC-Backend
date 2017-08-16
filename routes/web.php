@@ -22,3 +22,15 @@ Route::get('/videos/delete/{id}', 'VideoController@destroy')->name('videos.delet
 
 Route::resource('rubriques', 'RubriqueController');
 Route::get('/rubriques/delete/{id}', 'RubriqueController@destroy')->name('rubriques.delete')->middleware('auth');
+
+Route::resource('faq', 'FaqController');
+Route::get('/faq/delete/{id}', 'FaqController@destroy')->name('faq.delete')->middleware('auth');
+
+Route::resource('sections', 'FaqSectionController');
+Route::get('/sections/faq/{id}', 'FaqSectionController@byFaq')->name('sections.byFaq')->middleware('auth');
+Route::get('/sections/delete/{id}', 'FaqSectionController@destroy')->name('sections.delete')->middleware('auth');
+
+Route::resource('questions', 'FaqQuestionController');
+Route::get('/questions/section/{id}', 'FaqQuestionController@byFaqSection')->name('questions.byFaqSection')->middleware('auth');
+Route::get('/questions/create/{id}', 'FaqQuestionController@create')->name('questions.new')->middleware('auth');
+Route::get('/questions/delete/{id}', 'FaqQuestionController@destroy')->name('questions.delete')->middleware('auth');

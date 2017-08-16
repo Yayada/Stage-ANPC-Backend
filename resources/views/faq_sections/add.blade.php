@@ -6,12 +6,12 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Rubriques
+        Section de l'Faq
         <small>Nouvelle</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Acceuil</a></li>
-        <li class="active">Rubriques</li>
+        <li class="active">Sections de l'Faq</li>
       </ol>
     </section>
 
@@ -19,14 +19,14 @@
     <section class="content">
       <!-- Small boxes (Stat box) -->
       <div class="row">
-            <form role="form" method="post" action = {{route('videos.store')}}>
+            <form role="form" method="post" action = {{route('sections.store')}}>
                 {{ csrf_field() }}
               <div class="box-body">
                 <div class="form-group">
-                    <label for="title">Rubrique</label>
-                    <select  class="form-control" name="rubrique">
-                        @foreach($rubriques as $rubrique)
-                                <option value="{{$rubrique->id}}">{{$rubrique->name}}</option>
+                    <label for="title">Faq</label>
+                    <select  class="form-control" name="faq">
+                        @foreach($faqs as $faq)
+                                <option value="{{$faq->id}}">{{$faq->title}}</option>
                         @endforeach
                     </select>
                 </div>
@@ -34,14 +34,6 @@
                   <label for="title">Titre</label>
                   <input type="text" class="form-control" name="title" id="title" placeholder="Titre">
                 </div>                
-                <div class="form-group">
-                  <label for="description">Description</label>
-                  <input type="text" class="form-control" name="description" id="description" placeholder="Description">
-                </div>
-                <div class="form-group">
-                  <label for="title">URL</label>
-                  <input type="text" class="form-control" name="url" id="url" placeholder="URL de la vidèo">
-                </div>
               <!-- /.box-body -->
               <div class="box-footer">
                 <button type="submit" class="btn btn-primary">Envoyer</button>

@@ -46,6 +46,7 @@ class VideoController extends Controller
         $video->rubrique_id = $request->input('rubrique');
         $video->url = $request->input('url');
         $video->description = $request->input('description');
+        $video->title = $request->input('title');
         
         $rubrique->videos()->save($video);
 
@@ -111,5 +112,12 @@ class VideoController extends Controller
         $video->delete();
 
         return redirect()->route('videos.index');
+    }
+
+    public function videosByRubrique($rubriqueId)
+    {
+        $videos = Video::with('rubrique')->where('rubrique_id','=',$rubriqueId)->get();
+
+        return response()->json($videos);  
     }
 }

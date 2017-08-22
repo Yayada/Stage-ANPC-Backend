@@ -10,4 +10,9 @@ class Faq extends Model
     {
         return $this->hasMany('App\FaqSection');
     }
+
+    public function questions()
+    {
+        return $this->hasManyThrough('App\FaqQuestion','App\FaqSection');
+    }
 }

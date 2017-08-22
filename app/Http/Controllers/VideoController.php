@@ -20,6 +20,13 @@ class VideoController extends Controller
         return view('videos/all',['videos' => $videos]);
     }
 
+    public function byRubrique($id)
+    {
+        $videos = Video::where('rubrique_id','=',$id)->get();
+
+        return view('videos/all',['videos' => $videos]);
+    }       
+
     /**
      * Show the form for creating a new resource.
      *
@@ -47,6 +54,7 @@ class VideoController extends Controller
         $video->url = $request->input('url');
         $video->description = $request->input('description');
         $video->title = $request->input('title');
+        $video->url_image = $request->input('imgUrl');
         
         $rubrique->videos()->save($video);
 
@@ -93,6 +101,7 @@ class VideoController extends Controller
         $video->rubrique_id = $request->input('rubrique');
         $video->description = $request->input('description');
         $video->url = $request->input('url');
+        $video->url_image = $request->input('imgUrl');
 
         $video->save();
 

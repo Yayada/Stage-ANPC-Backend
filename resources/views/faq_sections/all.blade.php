@@ -50,7 +50,7 @@
                     <td>
                         <a href="{{route('questions.byFaqSection',['id' => $faqSection->id])}}" class="btn btn-xs btn-primary">
                             Voir questions 
-                            <i class="fa fa-plus"></i>
+                            <i class="fa fa-list"></i>
                         </a>                          
                         <a href="{{route('questions.new',['id' => $faqSection->id])}}" class="btn btn-xs btn-primary">
                             Nouvelle question 

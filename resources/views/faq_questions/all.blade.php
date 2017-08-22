@@ -40,11 +40,11 @@
                     <td>{{$faqQuestion->created_at}}</td>
                     <td>{{$faqQuestion->updated_at}}</td>
                     <td>                   
-                        <a href="{{route('sections.edit',['id' => $faqQuestion->id])}}" class="btn btn-xs btn-success">
+                        <a href="{{route('questions.edit',['id' => $faqQuestion->id])}}" class="btn btn-xs btn-success">
                             Modifier 
                             <i class="fa fa-pencil"></i>
                         </a>
-                        <a href="{{route('sections.delete',['id' => $faqQuestion->id])}}" class="btn btn-xs btn-danger">
+                        <a href="{{route('questions.delete',['id' => $faqQuestion->id])}}" class="btn btn-xs btn-danger">
                             Supprimer 
                             <i class="fa fa-trash"></i>
                         </a>

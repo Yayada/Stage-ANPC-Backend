@@ -36,6 +36,7 @@
                 <tr>
                     <th>Rubrique</th>
                     <th>URl</th>
+                    <th>Titre</th>
                     <th>Description</th>
                     <th>Crée le</th>
                     <th>Modifée le</th>
@@ -45,6 +46,7 @@
                 <tr>
                     <td>{{$video->rubrique->name}}</td>
                     <td>{{$video->url}}</td>
+                    <td>{{$video->title}}</td>
                     <td>{{$video->description}}</td>
                     <td>{{$video->created_at}}</td>
                     <td>{{$video->updated_at}}</td>

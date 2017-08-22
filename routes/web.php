@@ -18,6 +18,7 @@ Route::get('/', 'HomeController@index')->name('home')->middleware('auth');
 Route::resource('notifications', 'NotificationController');
 
 Route::resource('videos', 'VideoController');
+Route::get('/videos/rubrique/{id}', 'VideoController@byRUbrique')->name('videos.byRubrique')->middleware('auth');
 Route::get('/videos/delete/{id}', 'VideoController@destroy')->name('videos.delete')->middleware('auth');
 
 Route::resource('rubriques', 'RubriqueController');
@@ -34,3 +35,6 @@ Route::resource('questions', 'FaqQuestionController');
 Route::get('/questions/section/{id}', 'FaqQuestionController@byFaqSection')->name('questions.byFaqSection')->middleware('auth');
 Route::get('/questions/create/{id}', 'FaqQuestionController@create')->name('questions.new')->middleware('auth');
 Route::get('/questions/delete/{id}', 'FaqQuestionController@destroy')->name('questions.delete')->middleware('auth');
+
+Route::resource('users', 'UserController');
+Route::get('/users/delete/{id}', 'UserController@destroy')->name('users.delete')->middleware('auth');

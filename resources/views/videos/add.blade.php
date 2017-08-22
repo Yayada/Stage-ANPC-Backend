@@ -39,6 +39,10 @@
                   <input type="text" class="form-control" name="description" id="description" placeholder="Description">
                 </div>
                 <div class="form-group">
+                  <label for="imgUrl">Chemin d'image d'arrière plan</label>
+                  <input type="text" class="form-control" name="imgUrl" id="imgUrl" placeholder="Chemin d'image d'arrière plan">
+                </div>
+                <div class="form-group">
                   <label for="title">URL</label>
                   <input type="text" class="form-control" name="url" id="url" placeholder="URL de la vidèo">
                 </div>

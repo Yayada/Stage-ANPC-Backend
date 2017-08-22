@@ -33,12 +33,20 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="title">Description</label>
+                  <label for="title">Titre</label>
+                  <input type="text" class="form-control" name="title" id="title" placeholder="Titre" value={{$video->title}}>
+                </div>                  
+                <div class="form-group">
+                    <label for="description">Description</label>
                     <input type="text" class="form-control" name="description" id="description" placeholder="Description de la vidèo" value={{$video->description}}>
                 </div>
                 <div class="form-group">
-                    <label for="title">URL</label>
+                    <label for="url">URL</label>
                     <input type="text" class="form-control" name="url" id="url" placeholder="URL de la vidèo" value={{$video->url}}>
+                </div>
+                <div class="form-group">
+                  <label for="imgUrl">Chemin d'image d'arrière plan</label>
+                  <input type="text" class="form-control" name="imgUrl" id="imgUrl" placeholder="Chemin d'image d'arrière plan" value={{$video->url_image}}>
                 </div>
                 <!-- /.box-body -->
                 <div class="box-footer">

@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use GuzzleHttp\Client;
 use App\Notification;
-
+use App\User;
+use Auth;
 
 class NotificationController extends Controller
 {
@@ -16,7 +17,7 @@ class NotificationController extends Controller
      */
     public function index()
     {
-        $notifications = Notification::all();
+        $notifications = Notification::with('user')->get();
 
         return view('notifications/all',['notifications' => $notifications]);
     }
@@ -66,10 +67,13 @@ class NotificationController extends Controller
                 'body' => $data)
                 );
 
+        $user = User::find(Auth::id());
+
         $notification = new Notification;
         $notification->title = $title;
         $notification->body = $body;
-        $notification->save();
+        $notification->user_id = Auth::id();
+        $user->notifications()->save($notification);
 
         return redirect()->route('notifications.index');               
     }

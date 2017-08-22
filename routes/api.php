@@ -18,3 +18,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('/videos/rubriques/{rubriqueId}', 'VideoController@videosByRubrique');
+
+Route::get('/questions/faq/{id}', 'FaqQuestionController@byFaq');

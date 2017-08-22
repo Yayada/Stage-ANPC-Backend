@@ -45,6 +45,10 @@
                     <td>{{$rubrique->created_at}}</td>
                     <td>{{$rubrique->updated_at}}</td>
                     <td>    
+                        <a href="{{route('videos.byRubrique',['id' => $rubrique->id])}}" class="btn btn-xs btn-primary">
+                            Voir vidèos 
+                            <i class="fa fa-list"></i>
+                        </a>
                         <a href="{{route('rubriques.edit',['id' => $rubrique->id])}}" class="btn btn-xs btn-success">
                             Modifier 
                             <i class="fa fa-pencil"></i>

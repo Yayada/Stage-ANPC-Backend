@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\FaqSection;
 use App\FaqQuestion;
+use App\Faq;
 
 class FaqQuestionController extends Controller
 {
@@ -25,7 +26,18 @@ class FaqQuestionController extends Controller
         $faqQuestions = FaqQuestion::where('faq_section_id','=',$id)->get();
 
         return view('faq_questions/all',['faqQuestions' => $faqQuestions]);
-    }    
+    }
+
+    public function byFaq($id)
+    {
+        $faq = Faq::with('questions','faqSections')
+                    ->where('id','=',$id)
+                    ->first();
+        $questions = FaqSection::with('faqQuestions')->where('faq_id','=',$id)->get();
+
+
+        return response()->json($questions);
+    }         
 
     /**
      * Show the form for creating a new resource.
